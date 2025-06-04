@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miffy Photo Gallery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff7e6;
+            background-image: 
+                url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="2" fill="%23FFB6C1" opacity="0.3"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10,2 L12,6 L16,7 L13,10 L14,14 L10,12 L6,14 L7,10 L4,7 L8,6 Z" fill="%23FFB6C1" opacity="0.2"/></svg>');
+            background-size: 30px 30px, 60px 60px;
+            background-position: 0 0, 15px 15px;
+        }
+        h1 {
+            text-align: center;
+            color: #ff6b88;
+            margin-bottom: 15px;
+            font-size: 2.8em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            font-weight: 600;
+        }
+        h1::before, h1::after {
+            content: '🐰';
+            margin: 0 15px;
+        }
+        .nav-menu {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .nav-button {
+            background-color: #ff6b88;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            margin: 0 10px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Josefin Sans', sans-serif;
+            box-shadow: 0 3px 10px rgba(255, 107, 136, 0.2);
+        }
+        .nav-button:hover {
+            background-color: #ff8fa6;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 136, 0.3);
+        }
+        .nav-button.active {
+            background-color: #ff4d6d;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+        .photo-card {
+            background: white;
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(255, 107, 136, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid #ffc2cd;
+            position: relative;
+            overflow: hidden;
+        }
+        .photo-card::before {
+            content: '🥕';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 24px;
+            opacity: 0.5;
+            transform: rotate(45deg);
+        }
+        .photo-card:hover {
+            transform: translateY(-5px) rotate(1deg);
+            box-shadow: 0 8px 20px rgba(255, 107, 136, 0.2);
+            border-color: #ff6b88;
+        }
+        .photo-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        .photo-card:hover img {
+            transform: scale(1.05);
+        }
+        .photo-card h3 {
+            margin: 15px 0 5px;
+            color: #ff6b88;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        .photo-description {
+            color: #666;
+            font-size: 0.9em;
+            text-align: center;
+            margin-top: 5px;
+        }
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Miffy's World</h1>
+    <div class="nav-menu">
+        <button class="nav-button" onclick="window.location.href='index.html'">Bunnies</button>
+        <button class="nav-button active">Miffy</button>
+    </div>
+    <div class="gallery">
+        <div class="photo-card">
+            <img src="https://i.pinimg.com/originals/8b/6f/2d/8b6f2d2f3f8668bf54a38c32a7d70664.jpg" alt="Classic Miffy">
+            <h3>Classic Miffy</h3>
+            <div class="photo-description">The beloved Miffy in her classic pose</div>
+        </div>
+        <div class="photo-card">
+            <img src="https://i.pinimg.com/originals/2c/c9/2e/2cc92e6d0e8f0b7c1f31155165378225.jpg" alt="Miffy with Flowers">
+            <h3>Flower Garden</h3>
+            <div class="photo-description">Miffy enjoying her flower garden</div>
+        </div>
+        <div class="photo-card">
+            <img src="https://i.pinimg.com/originals/d8/43/c8/d843c8a8f0e0c173a8c81de7dd0c03f4.jpg" alt="Miffy Drawing">
+            <h3>Artist Miffy</h3>
+            <div class="photo-description">Miffy creating beautiful art</div>
+        </div>
+        <div class="photo-card">
+            <img src="https://i.pinimg.com/originals/1c/6b/a0/1c6ba0f7c6d6d891432e95b6830e2339.jpg" alt="Miffy Reading">
+            <h3>Book Lover</h3>
+            <div class="photo-description">Miffy enjoying her favorite book</div>
+        </div>
+        <div class="photo-card">
+            <img src="https://i.pinimg.com/originals/7b/6c/44/7b6c44636f8ce542d1b28c7c2a0693e2.jpg" alt="Miffy in Nature">
+            <h3>Nature Walk</h3>
+            <div class="photo-description">Miffy exploring the outdoors</div>
+        </div>
+        <div class="photo-card">
+            <img src="https://i.pinimg.com/originals/3f/70/11/3f70111831418853c4f40205e30f866d.jpg" alt="Miffy with Friends">
+            <h3>Friendly Miffy</h3>
+            <div class="photo-description">Miffy spending time with friends</div>
+        </div>
+        <div class="photo-card">
+            <img src="https://i.pinimg.com/originals/96/95/c0/9695c0c0f23b13d2c3731b69d9936373.jpg" alt="Miffy at Home">
+            <h3>Home Sweet Home</h3>
+            <div class="photo-description">Miffy in her cozy house</div>
+        </div>
+        <div class="photo-card">
+            <img src="https://i.pinimg.com/originals/1d/d4/63/1dd463b8d0e37c82d0f683c7eb958738.jpg" alt="Miffy Birthday">
+            <h3>Birthday Celebration</h3>
+            <div class="photo-description">Miffy celebrating a special day</div>
+        </div>
+        <div class="photo-card">
+            <img src="https://i.pinimg.com/originals/aa/66/bf/aa66bf4e9d2a5c3d5678ae01faca2f1d.jpg" alt="Miffy Dancing">
+            <h3>Dancing Miffy</h3>
+            <div class="photo-description">Miffy enjoying a dance</div>
+        </div>
+        <div class="photo-card">
+            <img src="https://i.pinimg.com/originals/f5/7c/9c/f57c9c6d8b70de9f9e6f1b9e8d7f9f1d.jpg" alt="Miffy at School">
+            <h3>School Time</h3>
+            <div class="photo-description">Miffy learning at school</div>
+        </div>
+        <div class="photo-card">
+            <img src="https://i.pinimg.com/originals/e7/8d/9f/e78d9f9d8b70de9f9e6f1b9e8d7f9f1d.jpg" alt="Miffy Cooking">
+            <h3>Chef Miffy</h3>
+            <div class="photo-description">Miffy preparing delicious treats</div>
+        </div>
+    </div>
+</body>
+</html> 
